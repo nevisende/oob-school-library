@@ -1,4 +1,4 @@
-require_relative "person"
+require_relative 'person'
 
 class Teacher < Person
   def initialize(specialization)
@@ -10,6 +10,3 @@ class Teacher < Person
     true
   end
 end
-
-muzafer_cakir = Teacher.new("haydar")
-muzafer_cakir.name = "Muzaffer"

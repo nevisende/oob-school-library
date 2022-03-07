@@ -15,7 +15,6 @@ puts "---------------------------------\n
 @book_arr = []
 @person_arr = []
 
-
 def push_store(item)
   if item.is_a?(Person)
     @person_arr.push(item)
@@ -73,12 +72,10 @@ end
 # Menu Operations
 def list_all_books
   @book_arr.map { |book| puts "Title: \"#{book.title}\" Author: #{book.author}" }
-  init
 end
 
 def list_all_people
   @person_arr.map { |person| puts "[#{person.type}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
-  init
 end
 
 def create_a_person()
@@ -92,7 +89,6 @@ def create_a_person()
   else
     puts 'Wrong input !'
   end
-  init
 end
 
 def create_a_book
@@ -103,7 +99,6 @@ def create_a_book
   book = Book.new(title, author)
   book_store(book)
   success('Book')
-  init
 end
 
 def create_a_rental
@@ -121,7 +116,6 @@ def create_a_rental
   book = @book_arr[book_index]
   Rental.new(date, person, book)
   success('Rental')
-  init
 end
 
 def list_rentals_for_id
@@ -133,7 +127,6 @@ def list_rentals_for_id
   rental.each do |item|
     puts "Date: #{item.date}, Book: #{item.book.title}, by #{item.book.author}"
   end
-  init
 end
 
 def exit
@@ -154,8 +147,11 @@ end
 def init()
   menu
   selection = gets.chomp.to_i
-  if selection.positive? && selection <= 7
+  if selection.positive? && selection < 7
     @menu_hash[selection].call
+    init
+  elsif selection == 7
+    @menu_hash[7].call
   else
     puts 'Wrong input !'
   end

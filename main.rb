@@ -2,22 +2,13 @@
 
 # Imports
 require './book'
-require './student'
-require './teacher'
 require './rental'
+require './create_person'
 
 # Opener
 puts "---------------------------------\n
  Welcome to School Library App!\n
 ------------------------------"
-
-# State Helpers
-@book_arr = []
-@person_arr = []
-
-def push_store(item)
-  item.is_a?(Person) ? @person_arr.push(item) : @book_arr.push(item)
-end
 
 def get_info
   print 'Age: '
@@ -27,36 +18,6 @@ def get_info
   return [age, name]
 end
 
-def create_student
-  age, name = get_info
-  print 'Has parent permission? [Y/N]: '
-  perm_input = gets.chomp
-  case perm_input.upcase
-  when 'Y'
-    perm = true
-  when 'N'
-    perm = false
-  else
-    puts 'Wrong input!'
-    init
-  end
-  student = Student.new(age, name)
-  student.parent_permission = perm
-  student.type = 'Student'
-  push_store(student)
-  success('Person')
-end
-
-def create_teacher
-  age, name = get_info
-  teacher = Teacher.new(age, name)
-  print 'Specialization: '
-  specialization = gets.chomp
-  teacher.specialization = specialization
-  teacher.type = 'Teacher'
-  push_store(teacher)
-  success('Person')
-end
 
 # Formatters
 def success(item)
@@ -73,13 +34,14 @@ def list_all_people
 end
 
 def create_a_person()
+ include Create_Person
   puts 'Do you want to create a student (1) or a teacher (2)? [input the number]: '
   option = gets.chomp
   case option.to_i
   when 1
-    create_student
+    Create_Person.create_student
   when 2
-    create_teacher
+    Create_Person.create_teacher
   else
     puts 'Wrong input !'
   end

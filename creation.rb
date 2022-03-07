@@ -61,7 +61,7 @@ module Creation
      end
    end
    
-   def create_a_book
+   def create_a_book(store)
      print 'Title: '
      title = gets.chomp
      print 'Author: '
@@ -71,20 +71,20 @@ module Creation
      success('Book')
    end
    
-   def create_a_rental
+   def create_a_rental(store)
 
      puts 'Select a book from the following list by number'
-     @book_arr.each_with_index { |book, idx| puts "#{idx}) Title: \"#{book.title}\" Author: #{book.author}" }
+     store.book_arr.each_with_index { |book, idx| puts "#{idx}) Title: \"#{book.title}\" Author: #{book.author}" }
      book_index = gets.chomp.to_i
      puts 'Select a person from the following list by number (not id)'
-     @person_arr.each_with_index do |person, idx|
+     store.person_arr.each_with_index do |person, idx|
        puts "#{idx}) [#{person.type}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
      end
      person_index = gets.chomp.to_i
      print 'Date (yyyy/mm/dd): '
      date = gets.chomp
-     person = @person_arr[person_index]
-     book = @book_arr[book_index]
+     person = store.person_arr[person_index]
+     book = store.book_arr[book_index]
      Rental.new(date, person, book)
      success('Rental')
    end

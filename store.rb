@@ -20,7 +20,7 @@ class Store
     @person_arr.map { |person| puts "[#{person.type}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
   end
 
-  def self.list_rentals_for_id
+  def list_rentals_for_id
     print 'ID of person: '
     person_id = gets.chomp.to_i
     person = @person_arr.find { |prsn| prsn.id == person_id }
@@ -31,7 +31,7 @@ class Store
     end
   end
 
-  def self.all
+  def all
     collection = []
     ObjectSpace.each_object(Store) { |item| collection << item }
     collection

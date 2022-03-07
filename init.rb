@@ -16,34 +16,32 @@ require './creation'
         '5 - Create a rental', '6 - List all rentals for a given person id', '7 - Exit'
   end
 
-  def list(num)
-    store = Store.new
+  def list(num, store)
   include Creation
     case num
     when 1
-      Store.list_all_books
+      store.list_all_books
     when 2
-      p Store.all[1].person_arr
       store.list_all_people
     when 3
       create_a_person(store)
     when 4
-      create_a_book
+      create_a_book(store)
     when 5
-      create_a_rental
+      create_a_rental(store)
     when 6
-      Store.list_rentals_for_id
+      store.list_rentals_for_id
     end
   end
 
-  def init()
+  def init(store)
     menu
     selection = gets.chomp.to_i
     if selection.positive? && selection < 7
-      list(selection)
-      init
+      list(selection, store)
+      init(store)
     elsif selection == 7
-      @menu_hash[7].call
+      exit
     else
       puts 'Wrong input !'
     end

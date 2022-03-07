@@ -3,7 +3,7 @@ require_relative './teacher'
 require_relative './store'
 
 module Creation
-  store = Store.new
+ store = Store.new
 
   def success(item)
     puts "#{item} created succesfully!"
@@ -17,7 +17,7 @@ module Creation
     return [age, name]
   end
 
-  def create_student
+  def create_student(store)
     age, name = create_basic_info
     print 'Has parent permission? [Y/N]: '
     perm_input = gets.chomp
@@ -37,7 +37,7 @@ module Creation
     success('Person')
   end
   
-  def create_teacher
+  def create_teacher(store)
     age, name = create_basic_info
     teacher = Teacher.new(age, name)
     print 'Specialization: '
@@ -48,15 +48,14 @@ module Creation
     success('Person')
   end
 
-  def create_a_person()
-    include Create_Person
+  def create_a_person(store)
      puts 'Do you want to create a student (1) or a teacher (2)? [input the number]: '
      option = gets.chomp
      case option.to_i
      when 1
-       Create_Person.create_student
+       create_student(store)
      when 2
-       Create_Person.create_teacher
+       create_teacher(store)
      else
        puts 'Wrong input !'
      end
@@ -68,7 +67,6 @@ module Creation
      print 'Author: '
      author = gets.chomp
      book = Book.new(title, author)
-     store = Store.new
      store.push(book)
      success('Book')
    end

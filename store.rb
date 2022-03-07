@@ -1,5 +1,8 @@
 
 class Store
+  attr_accessor :book_arr
+  attr_accessor :person_arr
+
   def initialize
     @book_arr = []
     @person_arr = []
@@ -17,7 +20,7 @@ class Store
     @person_arr.map { |person| puts "[#{person.type}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
   end
 
-  def list_rentals_for_id
+  def self.list_rentals_for_id
     print 'ID of person: '
     person_id = gets.chomp.to_i
     person = @person_arr.find { |prsn| prsn.id == person_id }
@@ -26,5 +29,11 @@ class Store
     rental.each do |item|
       puts "Date: #{item.date}, Book: #{item.book.title}, by #{item.book.author}"
     end
+  end
+
+  def self.all
+    collection = []
+    ObjectSpace.each_object(Store) { |item| collection << item }
+    collection
   end
 end

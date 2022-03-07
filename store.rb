@@ -1,7 +1,5 @@
-
 class Store
-  attr_accessor :book_arr
-  attr_accessor :person_arr
+  attr_accessor :book_arr, :person_arr
 
   def initialize
     @book_arr = []
@@ -15,7 +13,7 @@ class Store
   def list_all_books
     @book_arr.map { |book| puts "Title: \"#{book.title}\" Author: #{book.author}" }
   end
-  
+
   def list_all_people
     @person_arr.map { |person| puts "[#{person.type}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
   end

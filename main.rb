@@ -16,13 +16,7 @@ puts "---------------------------------\n
 @person_arr = []
 
 def push_store(item)
-  if item.is_a?(Person)
-    @person_arr.push(item)
-    @person_arr
-  else 
-    @book_arr.push(item)
-    @book_arr
-  end
+  item.is_a?(Person) ? @person_arr.push(item) : @book_arr.push(item)
 end
 
 def get_info
@@ -97,7 +91,7 @@ def create_a_book
   print 'Author: '
   author = gets.chomp
   book = Book.new(title, author)
-  book_store(book)
+  push_store(book)
   success('Book')
 end
 

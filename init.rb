@@ -23,7 +23,7 @@ require './creation'
     when 1
       Store.list_all_books
     when 2
-      p Store.all[1]
+      p Store.all[1].person_arr
       store.list_all_people
     when 3
       create_a_person(store)

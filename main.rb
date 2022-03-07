@@ -15,14 +15,15 @@ puts "---------------------------------\n
 @book_arr = []
 @person_arr = []
 
-def book_store(book)
-  @book_arr.push(book)
-  @book_arr
-end
 
-def person_store(person)
-  @person_arr.push(person)
-  @person_arr
+def push_store(item)
+  if item.is_a?(Person)
+    @person_arr.push(item)
+    @person_arr
+  else 
+    @book_arr.push(item)
+    @book_arr
+  end
 end
 
 def get_info
@@ -30,10 +31,11 @@ def get_info
   age = gets.chomp
   print 'Name: '
   name = gets.chomp
+  return [age, name]
 end
 
 def create_student
-  get_info
+  age, name = get_info
   print 'Has parent permission? [Y/N]: '
   perm_input = gets.chomp
   case perm_input.upcase
@@ -48,18 +50,18 @@ def create_student
   student = Student.new(age, name)
   student.parent_permission = perm
   student.type = 'Student'
-  person_store(student)
+  push_store(student)
   success('Person')
 end
 
 def create_teacher
-  get_info
+  age, name = get_info
   teacher = Teacher.new(age, name)
   print 'Specialization: '
   specialization = gets.chomp
   teacher.specialization = specialization
   teacher.type = 'Teacher'
-  person_store(teacher)
+  push_store(teacher)
   success('Person')
 end
 

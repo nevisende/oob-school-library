@@ -25,11 +25,15 @@ def person_store(person)
   @person_arr
 end
 
-def create_student
+def get_info
   print 'Age: '
   age = gets.chomp
   print 'Name: '
   name = gets.chomp
+end
+
+def create_student
+  get_info
   print 'Has parent permission? [Y/N]: '
   perm_input = gets.chomp
   case perm_input.upcase
@@ -49,10 +53,7 @@ def create_student
 end
 
 def create_teacher
-  print 'Age: '
-  age = gets.chomp
-  print 'Name: '
-  name = gets.chomp
+  get_info
   teacher = Teacher.new(age, name)
   print 'Specialization: '
   specialization = gets.chomp

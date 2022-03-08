@@ -2,7 +2,7 @@ require 'json'
 
 class Store
   def self.read_convert(filename)
-    data = JSON.parse(File.read(filename))
+    JSON.parse(File.read(filename))
   end
 
   def self.push(item)
@@ -17,7 +17,7 @@ class Store
       end
       File.write('people.json', JSON.generate(json_to_arr))
     else
-      json_to_arr = read_convert('books.json').push({ 'title' => item.title, 'author' => item.author})
+      json_to_arr = read_convert('books.json').push({ 'title' => item.title, 'author' => item.author })
       File.write('books.json', JSON.generate(json_to_arr))
     end
   end
@@ -27,7 +27,9 @@ class Store
   end
 
   def self.list_all_people
-    JSON.parse(File.read('people.json')).map { |person| puts "[#{person['type']}] Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}" }
+    JSON.parse(File.read('people.json')).map do |person|
+      puts "[#{person['type']}] Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}"
+    end
   end
 
   def self.list_rentals_for_id

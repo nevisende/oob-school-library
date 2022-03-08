@@ -70,7 +70,6 @@ module Creation
     success('Book')
   end
 
-  
   def self.create_a_rental
     books_arr = JSON.parse(File.read('books.json'))
     puts 'Select a book from the following list by number'
@@ -89,12 +88,14 @@ module Creation
     book = books_arr[book_index]
     rental = Rental.new(date, person, book)
     new_people_arr = people_arr.each do |item|
-      if(item['id'] == person['id'])
-        person['rentals'] << { 'date' => rental.date, 'author' => rental.book['author'], 'title' => rental.book['title'] }
+      if item['id'] == person['id']
+        person['rentals'] << { 'date' => rental.date, 'author' => rental.book['author'],
+                               'title' => rental.book['title'] }
       end
     end
     File.write('people.json', JSON.generate(new_people_arr))
-    json_to_arr = JSON.parse(File.read('rentals.json')).push({ 'date' => rental.date, 'person' => rental.person, 'book' => rental.book })
+    json_to_arr = rentals_arr.push({ 'date' => rental.date, 'person' => rental.person,
+                                     'book' => rental.book })
     File.write('rentals.json', JSON.generate(json_to_arr))
     success('Rental')
   end

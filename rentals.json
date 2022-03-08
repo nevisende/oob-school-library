@@ -30,5 +30,21 @@
 			"author": "Julian Birch",
 			"rentals": ["#<Rental:0x000055895d1333f0>"]
 		}
+	},
+	{
+		"date": "32retryt",
+		"person": {
+			"type": "Teacher",
+			"name": "furkan",
+			"id": 189,
+			"age": "35",
+			"specialization": "software",
+			"rentals": ["#<Rental:0x00005560e0a28e38>"]
+		},
+		"book": {
+			"title": "Into to Programming",
+			"author": "Julian Birch",
+			"rentals": ["#<Rental:0x00005560e0a28e38>"]
+		}
 	}
 ]

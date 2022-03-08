@@ -22,8 +22,8 @@ class Store
     end
   end
 
-  def list_all_books
-    @book_arr.map { |book| puts "Title: \"#{book.title}\" Author: #{book.author}" }
+  def self.list_all_books
+    JSON.parse(File.read('books.json')).map { |book| puts "Title: \"#{book['title']}\" Author: #{book['author']}" }
   end
 
   def list_all_people

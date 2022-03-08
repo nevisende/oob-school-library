@@ -70,7 +70,7 @@ module Creation
     success('Book')
   end
 
-  def self.create_a_rental()
+  def self.create_a_rental
     books_arr = JSON.parse(File.read('books.json'))
     puts 'Select a book from the following list by number'
     books_arr.each_with_index { |book, idx| puts "#{idx}) Title: \"#{book['title']}\" Author: #{book['author']}" }

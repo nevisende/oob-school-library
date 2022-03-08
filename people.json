@@ -1,1 +1,18 @@
-[{"type":"Student","name":"John","id":199,"age":"20","parent_permission":true,"rentals":[]},{"type":"Teacher","name":"furkan","id":189,"age":"35","specialization":"software","rentals":[]}]
+[
+	{
+		"type": "Student",
+		"name": "John",
+		"id": 199,
+		"age": "20",
+		"parent_permission": true,
+		"rentals": []
+	},
+	{
+		"type": "Teacher",
+		"name": "furkan",
+		"id": 189,
+		"age": "35",
+		"specialization": "software",
+		"rentals": []
+	}
+]

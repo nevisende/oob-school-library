@@ -18,7 +18,7 @@ end
 def list(num)
   case num
   when 1
-    list_all_books
+    Store.list_all_books
   when 2
     list_all_people
   when 3

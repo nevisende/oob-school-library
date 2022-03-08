@@ -2,21 +2,23 @@ require 'json'
 
 class Store
   def self.read_convert(filename)
-    data= JSON.parse(File.read(filename))
+    data = JSON.parse(File.read(filename))
   end
 
   def self.push(item)
-    if(item.is_a?(Person)) 
-      json_to_arr = read_convert("people.json")
-      if(item.type == 'Student')
-        json_to_arr.push({"type": item.type, "name" => item.name, "id" => item.id, "age" => item.age, "parent_permission" => item.parent_permission})
+    if item.is_a?(Person)
+      json_to_arr = read_convert('people.json')
+      if item.type == 'Student'
+        json_to_arr.push({ type: item.type, 'name' => item.name, 'id' => item.id, 'age' => item.age,
+                           'parent_permission' => item.parent_permission, 'rentals' => item.rentals })
       else
-        json_to_arr.push({"type": item.type, "name" => item.name, "id" => item.id, "age" => item.age, "specialization" => item.specialization})
+        json_to_arr.push({ type: item.type, 'name' => item.name, 'id' => item.id, 'age' => item.age,
+                           'specialization' => item.specialization, 'rentals' => item.rentals })
       end
-        File.write("people.json", JSON.generate(json_to_arr))
-    else 
-      json_to_arr = read_convert("books.json").push({"title" => item.title, "author" => item.author})
-      File.write("books.json", JSON.generate(json_to_arr))
+      File.write('people.json', JSON.generate(json_to_arr))
+    else
+      json_to_arr = read_convert('books.json').push({ 'title' => item.title, 'author' => item.author, 'rentals' => item.rentals })
+      File.write('books.json', JSON.generate(json_to_arr))
     end
   end
 

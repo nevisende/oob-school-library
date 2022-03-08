@@ -43,7 +43,7 @@ module Creation
     specialization = gets.chomp
     teacher.specialization = specialization
     teacher.type = 'Teacher'
-    store.push(teacher)
+    Store.push(teacher)
     success('Person')
   end
 
@@ -66,30 +66,29 @@ module Creation
     print 'Author: '
     author = gets.chomp
     book = Book.new(title, author)
-    store.push(book)
+    Store.push(book)
     success('Book')
   end
 
   def self.create_a_rental()
-    books_arr= JSON.parse(File.read("books.json"))
+    books_arr = JSON.parse(File.read('books.json'))
     puts 'Select a book from the following list by number'
-    books_arr.each_with_index { |book, idx| puts "#{idx}) Title: \"#{book["title"]}\" Author: #{book.author}" }
+    books_arr.each_with_index { |book, idx| puts "#{idx}) Title: \"#{book['title']}\" Author: #{book['author']}" }
     book_index = gets.chomp.to_i
     puts 'Select a person from the following list by number (not id)'
-    people_arr= JSON.parse(File.read("people.json"))
+    people_arr = JSON.parse(File.read('people.json'))
     people_arr.each_with_index do |person, idx|
-      puts "#{idx}) [#{person.type}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      puts "#{idx}) [#{person['type']}] Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}"
     end
     person_index = gets.chomp.to_i
     print 'Date (yyyy/mm/dd): '
     date = gets.chomp
-    rentals_arr= JSON.parse(File.read("rentals.json"))
+    rentals_arr = JSON.parse(File.read('rentals.json'))
     person = people_arr[person_index]
     book = books_arr[book_index]
-    Rental.new(date, person, book)
-  
-    json_to_arr = read_convert("books.json").push({"date" => date, "person" => person, "book" => book})
-    File.write("rentals.json", JSON.generate(json_to_arr))
+    rental = Rental.new(date, person, book)
+    json_to_arr = JSON.parse(File.read('rentals.json')).push({ 'date' => rental.date, 'person' => rental.person, 'book' => rental.book })
+    File.write('rentals.json', JSON.generate(json_to_arr))
     success('Rental')
   end
 end

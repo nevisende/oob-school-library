@@ -14,5 +14,13 @@
 		"age": "35",
 		"specialization": "software",
 		"rentals": []
+	},
+	{
+		"type": "Student",
+		"name": "John",
+		"id": 321,
+		"age": "25",
+		"parent_permission": true,
+		"rentals": []
 	}
 ]

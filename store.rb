@@ -26,8 +26,8 @@ class Store
     JSON.parse(File.read('books.json')).map { |book| puts "Title: \"#{book['title']}\" Author: #{book['author']}" }
   end
 
-  def list_all_people
-    @person_arr.map { |person| puts "[#{person.type}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
+  def self.list_all_people
+    JSON.parse(File.read('people.json')).map { |person| puts "[#{person['type']}] Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}" }
   end
 
   def list_rentals_for_id

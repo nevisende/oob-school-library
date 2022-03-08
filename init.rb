@@ -20,7 +20,7 @@ def list(num)
   when 1
     Store.list_all_books
   when 2
-    list_all_people
+    Store.list_all_people
   when 3
     Creation.create_a_person
   when 4

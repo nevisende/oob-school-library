@@ -17,7 +17,7 @@ class Store
       end
       File.write('people.json', JSON.generate(json_to_arr))
     else
-      json_to_arr = read_convert('books.json').push({ 'title' => item.title, 'author' => item.author, 'rentals' => item.rentals })
+      json_to_arr = read_convert('books.json').push({ 'title' => item.title, 'author' => item.author})
       File.write('books.json', JSON.generate(json_to_arr))
     end
   end

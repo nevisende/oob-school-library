@@ -2,37 +2,11 @@
 	{
 		"type": "Student",
 		"name": "John",
-		"id": 199,
+		"id": 319,
 		"age": "20",
 		"parent_permission": true,
-		"rentals": []
-	},
-	{
-		"type": "Teacher",
-		"name": "furkan",
-		"id": 189,
-		"age": "35",
-		"specialization": "software",
 		"rentals": [
-			{ "date": "ertgyy", "author": "Julian Birch" },
-			{
-				"date": "2022/03/03",
-				"author": "Julian Birch",
-				"title": "Into to Programming"
-			},
-			{
-				"date": "ewfrtgryht",
-				"author": "Julian Birch",
-				"title": "Into to Programming"
-			}
+			{ "date": "2022/03/3", "author": "Jane Doe", "title": "John is fine" }
 		]
-	},
-	{
-		"type": "Student",
-		"name": "John",
-		"id": 321,
-		"age": "25",
-		"parent_permission": true,
-		"rentals": []
 	}
 ]

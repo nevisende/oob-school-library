@@ -1,69 +1,16 @@
 [
 	{
-		"date": "ertgyy",
+		"date": "2022/03/3",
 		"person": {
-			"type": "Teacher",
-			"name": "furkan",
-			"id": 189,
-			"age": "35",
-			"specialization": "software",
-			"rentals": [{ "date": "ertgyy", "author": "Julian Birch" }]
-		},
-		"book": {
-			"title": "Into to Programming",
-			"author": "Julian Birch",
-			"rentals": []
-		}
-	},
-	{
-		"date": "2022/03/03",
-		"person": {
-			"type": "Teacher",
-			"name": "furkan",
-			"id": 189,
-			"age": "35",
-			"specialization": "software",
+			"type": "Student",
+			"name": "John",
+			"id": 319,
+			"age": "20",
+			"parent_permission": true,
 			"rentals": [
-				{ "date": "ertgyy", "author": "Julian Birch" },
-				{
-					"date": "2022/03/03",
-					"author": "Julian Birch",
-					"title": "Into to Programming"
-				}
+				{ "date": "2022/03/3", "author": "Jane Doe", "title": "John is fine" }
 			]
 		},
-		"book": {
-			"title": "Into to Programming",
-			"author": "Julian Birch",
-			"rentals": []
-		}
-	},
-	{
-		"date": "ewfrtgryht",
-		"person": {
-			"type": "Teacher",
-			"name": "furkan",
-			"id": 189,
-			"age": "35",
-			"specialization": "software",
-			"rentals": [
-				{ "date": "ertgyy", "author": "Julian Birch" },
-				{
-					"date": "2022/03/03",
-					"author": "Julian Birch",
-					"title": "Into to Programming"
-				},
-				{
-					"date": "ewfrtgryht",
-					"author": "Julian Birch",
-					"title": "Into to Programming"
-				}
-			]
-		},
-		"book": {
-			"title": "Into to Programming",
-			"author": "Julian Birch",
-			"rentals": []
-		}
+		"book": { "title": "John is fine", "author": "Jane Doe" }
 	}
 ]

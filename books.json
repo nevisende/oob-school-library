@@ -1,5 +1,4 @@
 [
-	{ "title": "John is fine", "author": "Jane Doe", "rentals": [] },
-	{ "title": "Into to Programming", "author": "Julian Birch", "rentals": [] },
-	{ "title": "Who is James", "author": "James Bond", "rentals": [] }
+	{ "title": "John is fine", "author": "Jane Doe" },
+	{ "title": "Angels and Demons", "author": "Dan Brown" }
 ]

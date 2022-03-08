@@ -1,18 +1,18 @@
 [
 	{
-		"date": "2022/02/02",
+		"date": "ertgyy",
 		"person": {
 			"type": "Teacher",
 			"name": "furkan",
 			"id": 189,
 			"age": "35",
 			"specialization": "software",
-			"rentals": ["#<Rental:0x000055895d129260>"]
+			"rentals": [{ "date": "ertgyy", "author": "Julian Birch" }]
 		},
 		"book": {
 			"title": "Into to Programming",
 			"author": "Julian Birch",
-			"rentals": ["#<Rental:0x000055895d129260>"]
+			"rentals": []
 		}
 	},
 	{
@@ -23,28 +23,47 @@
 			"id": 189,
 			"age": "35",
 			"specialization": "software",
-			"rentals": ["#<Rental:0x000055895d1333f0>"]
+			"rentals": [
+				{ "date": "ertgyy", "author": "Julian Birch" },
+				{
+					"date": "2022/03/03",
+					"author": "Julian Birch",
+					"title": "Into to Programming"
+				}
+			]
 		},
 		"book": {
 			"title": "Into to Programming",
 			"author": "Julian Birch",
-			"rentals": ["#<Rental:0x000055895d1333f0>"]
+			"rentals": []
 		}
 	},
 	{
-		"date": "32retryt",
+		"date": "ewfrtgryht",
 		"person": {
 			"type": "Teacher",
 			"name": "furkan",
 			"id": 189,
 			"age": "35",
 			"specialization": "software",
-			"rentals": ["#<Rental:0x00005560e0a28e38>"]
+			"rentals": [
+				{ "date": "ertgyy", "author": "Julian Birch" },
+				{
+					"date": "2022/03/03",
+					"author": "Julian Birch",
+					"title": "Into to Programming"
+				},
+				{
+					"date": "ewfrtgryht",
+					"author": "Julian Birch",
+					"title": "Into to Programming"
+				}
+			]
 		},
 		"book": {
 			"title": "Into to Programming",
 			"author": "Julian Birch",
-			"rentals": ["#<Rental:0x00005560e0a28e38>"]
+			"rentals": []
 		}
 	}
 ]

@@ -13,7 +13,19 @@
 		"id": 189,
 		"age": "35",
 		"specialization": "software",
-		"rentals": []
+		"rentals": [
+			{ "date": "ertgyy", "author": "Julian Birch" },
+			{
+				"date": "2022/03/03",
+				"author": "Julian Birch",
+				"title": "Into to Programming"
+			},
+			{
+				"date": "ewfrtgryht",
+				"author": "Julian Birch",
+				"title": "Into to Programming"
+			}
+		]
 	},
 	{
 		"type": "Student",

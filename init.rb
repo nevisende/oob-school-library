@@ -28,7 +28,7 @@ def list(num)
   when 5
     Creation.create_a_rental
   when 6
-    list_rentals_for_id
+    Store.list_rentals_for_id
   end
 end
 

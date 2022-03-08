@@ -30,14 +30,14 @@ class Store
     JSON.parse(File.read('people.json')).map { |person| puts "[#{person['type']}] Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}" }
   end
 
-  def list_rentals_for_id
+  def self.list_rentals_for_id
     print 'ID of person: '
     person_id = gets.chomp.to_i
-    person = @person_arr.find { |prsn| prsn.id == person_id }
-    rental = person.rentals
+    person = JSON.parse(File.read('people.json')).find { |prsn| prsn['id'] == person_id }
+    rental = person['rentals']
     puts 'Rentals:'
     rental.each do |item|
-      puts "Date: #{item.date}, Book: #{item.book.title}, by #{item.book.author}"
+      puts "Date: #{item['date']}, Book: #{item['title']}, by #{item['author']}"
     end
   end
 

@@ -8,18 +8,23 @@ class Store
     @person_arr = []
   end
 
+  def read_convert(filename)
+    data= JSON.parse(File.read(filename))
+  end
+
   def push(item)
     if(item.is_a?(Person)) 
-      @person_arr.push(item)
-      data = File.read("people.json")
-      json_to_arr = JSON.parse(data)
-      json_to_arr.push({"name" => item.name})
-      File.write("people.json", JSON.generate(json_to_arr))
+      json_to_arr = read_convert("people.json")
+      if(item.type == 'Student')
+        json_to_arr.push({"type": item.type, "name" => item.name, "id" => item.id, "age" => item.age, "parent_permission" => item.parent_permission})
+      else
+        json_to_arr.push({"type": item.type, "name" => item.name, "id" => item.id, "age" => item.age, "specialization" => item.specialization})
+      end
+        File.write("people.json", JSON.generate(json_to_arr))
     else 
-      @book_arr.push(item)
+      json_to_arr = read_convert("books.json").push({"title" => item.title, "author" => item.author})
+      File.write("books.json", JSON.generate(json_to_arr))
     end
-
-    
   end
 
   def list_all_books

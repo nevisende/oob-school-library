@@ -70,7 +70,7 @@ module Creation
     success('Book')
   end
 
-  def self.create_a_rental
+  def self.books_and_people_to_rental
     books_arr = JSON.parse(File.read('books.json'))
     puts 'Select a book from the following list by number'
     books_arr.each_with_index { |book, idx| puts "#{idx}) Title: \"#{book['title']}\" Author: #{book['author']}" }
@@ -81,6 +81,11 @@ module Creation
       puts "#{idx}) [#{person['type']}] Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}"
     end
     person_index = gets.chomp.to_i
+    [books_arr, people_arr, book_index, person_index]
+  end
+
+  def self.create_a_rental
+    books_arr, people_arr, book_index, person_index = books_and_people_to_rental
     print 'Date (yyyy/mm/dd): '
     date = gets.chomp
     rentals_arr = JSON.parse(File.read('rentals.json'))

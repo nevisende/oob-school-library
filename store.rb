@@ -1,3 +1,5 @@
+require 'json'
+
 class Store
   attr_accessor :book_arr, :person_arr
 
@@ -7,7 +9,17 @@ class Store
   end
 
   def push(item)
-    item.is_a?(Person) ? @person_arr.push(item) : @book_arr.push(item)
+    if(item.is_a?(Person)) 
+      @person_arr.push(item)
+      data = File.read("people.json")
+      json_to_arr = JSON.parse(data)
+      json_to_arr.push({"name" => item.name})
+      File.write("people.json", JSON.generate(json_to_arr))
+    else 
+      @book_arr.push(item)
+    end
+
+    
   end
 
   def list_all_books

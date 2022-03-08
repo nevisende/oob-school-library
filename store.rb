@@ -1,18 +1,11 @@
 require 'json'
 
 class Store
-  attr_accessor :book_arr, :person_arr
-
-  def initialize
-    @book_arr = []
-    @person_arr = []
-  end
-
-  def read_convert(filename)
+  def self.read_convert(filename)
     data= JSON.parse(File.read(filename))
   end
 
-  def push(item)
+  def self.push(item)
     if(item.is_a?(Person)) 
       json_to_arr = read_convert("people.json")
       if(item.type == 'Student')

@@ -1,3 +1,4 @@
+require 'json'
 require_relative './student'
 require_relative './teacher'
 require_relative './store'
@@ -15,7 +16,7 @@ module Creation
     [age, name]
   end
 
-  def self.create_student(store)
+  def self.create_student
     age, name = create_basic_info
     print 'Has parent permission? [Y/N]: '
     perm_input = gets.chomp
@@ -31,11 +32,11 @@ module Creation
     student = Student.new(age, name)
     student.parent_permission = perm
     student.type = 'Student'
-    store.push(student)
+    Store.push(student)
     success('Person')
   end
 
-  def self.create_teacher(store)
+  def self.create_teacher
     age, name = create_basic_info
     teacher = Teacher.new(age, name)
     print 'Specialization: '
@@ -46,20 +47,20 @@ module Creation
     success('Person')
   end
 
-  def self.create_a_person(store)
+  def self.create_a_person
     puts 'Do you want to create a student (1) or a teacher (2)? [input the number]: '
     option = gets.chomp
     case option.to_i
     when 1
-      create_student(store)
+      create_student
     when 2
-      create_teacher(store)
+      create_teacher
     else
       puts 'Wrong input !'
     end
   end
 
-  def self.create_a_book(store)
+  def self.create_a_book
     print 'Title: '
     title = gets.chomp
     print 'Author: '
@@ -69,20 +70,26 @@ module Creation
     success('Book')
   end
 
-  def self.create_a_rental(store)
+  def self.create_a_rental()
+    books_arr= JSON.parse(File.read("books.json"))
     puts 'Select a book from the following list by number'
-    store.book_arr.each_with_index { |book, idx| puts "#{idx}) Title: \"#{book.title}\" Author: #{book.author}" }
+    books_arr.each_with_index { |book, idx| puts "#{idx}) Title: \"#{book["title"]}\" Author: #{book.author}" }
     book_index = gets.chomp.to_i
     puts 'Select a person from the following list by number (not id)'
-    store.person_arr.each_with_index do |person, idx|
+    people_arr= JSON.parse(File.read("people.json"))
+    people_arr.each_with_index do |person, idx|
       puts "#{idx}) [#{person.type}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
     person_index = gets.chomp.to_i
     print 'Date (yyyy/mm/dd): '
     date = gets.chomp
-    person = store.person_arr[person_index]
-    book = store.book_arr[book_index]
+    rentals_arr= JSON.parse(File.read("rentals.json"))
+    person = people_arr[person_index]
+    book = books_arr[book_index]
     Rental.new(date, person, book)
+  
+    json_to_arr = read_convert("books.json").push({"date" => date, "person" => person, "book" => book})
+    File.write("rentals.json", JSON.generate(json_to_arr))
     success('Rental')
   end
 end

@@ -15,29 +15,29 @@ def menu
        '5 - Create a rental', '6 - List all rentals for a given person id', '7 - Exit'
 end
 
-def list(num, store)
+def list(num)
   case num
   when 1
-    store.list_all_books
+    list_all_books
   when 2
-    store.list_all_people
+    list_all_people
   when 3
-    Creation.create_a_person(store)
+    Creation.create_a_person
   when 4
-    Creation.create_a_book(store)
+    Creation.create_a_book
   when 5
-    Creation.create_a_rental(store)
+    Creation.create_a_rental
   when 6
-    store.list_rentals_for_id
+    list_rentals_for_id
   end
 end
 
-def init(store)
+def init
   menu
   selection = gets.chomp.to_i
   if selection.positive? && selection < 7
-    list(selection, store)
-    init(store)
+    list(selection)
+    init
   elsif selection == 7
     exit
   else

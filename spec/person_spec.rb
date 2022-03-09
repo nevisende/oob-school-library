@@ -3,6 +3,7 @@ require_relative '../person'
 describe Person do
   before :all do
     @person = Person.new(30, 'Furkan')
+    @person.type = 'Student'
   end
 
   context 'instance check' do
@@ -25,9 +26,18 @@ describe Person do
       expect(@person.name).to eq 'Furkan'
     end
 
-    it 'should be able to write to the age property' do
+    it 'should be able to write to the name property' do
       @person.name = 'John'
       expect(@person.name).to eq 'John'
+    end
+
+    it 'should be able to read the type property' do
+      expect(@person.type).to eq 'Student'
+    end
+
+    it 'should be able to write to the type property' do
+      @person.type = 'Teacher'
+      expect(@person.type).to eq 'Teacher'
     end
   end
 

@@ -24,5 +24,10 @@ describe Student do
       it 'should return a string when method is called' do
         expect(@student.play_hooky).to eq "¯\(ツ)/¯"
       end
+
+      it 'should return a string when method is called' do
+        @student.parent_permission = false
+        expect(@student.parent_permission).to be_falsey
+      end
     end
 end

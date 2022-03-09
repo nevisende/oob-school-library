@@ -24,19 +24,19 @@ describe Rental do
     end
 
     it 'should be able to read the person property' do
-      expect(@rental.person).to eq "Anselem"
+      expect(@rental.person).to eq 'Anselem'
     end
 
     it 'should not be able to write the person property' do
-      expect{ @rental.person = 'Anselem Odimegwu' }.to raise_exception(NoMethodError)
+      expect { @rental.person = 'Anselem Odimegwu' }.to raise_exception(NoMethodError)
     end
 
     it 'should be able to read the book property' do
-      expect(@rental.book).to eq "Clean Code"
+      expect(@rental.book).to eq 'Clean Code'
     end
 
     it 'should not be able to write the book property' do
-      expect{ @rental.book = 'DDD' }.to raise_exception(NoMethodError)
+      expect { @rental.book = 'DDD' }.to raise_exception(NoMethodError)
     end
   end
 end

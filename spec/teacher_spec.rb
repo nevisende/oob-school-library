@@ -17,8 +17,8 @@ describe Teacher do
     end
 
     it 'id should be included between 1 and 500' do
-      expect(@teacher.id.between?(1,500)).to eq true
-    end  
+      expect(@teacher.id.between?(1, 500)).to eq true
+    end
 
     it 'name should be "Unknown" when not given' do
       expect(@teacher.name).to eq 'Unknown'
@@ -29,7 +29,7 @@ describe Teacher do
     end
 
     it 'parent_permission should throw NoMethodError because of access permission' do
-      expect{ @teacher.parent_permission }.to raise_exception(NoMethodError)
+      expect { @teacher.parent_permission }.to raise_exception(NoMethodError)
     end
 
     it 'rentals should be [] when initiliazed' do
@@ -38,7 +38,7 @@ describe Teacher do
 
     it 'type should be nil when initiliazed' do
       expect(@teacher.type).to eq nil
-    end  
+    end
   end
 
   context 'instance variables accessibility' do
@@ -52,7 +52,7 @@ describe Teacher do
     end
 
     it 'should be able to read the age property' do
-      expect(@teacher_anselem.name).to eq "Anselem"
+      expect(@teacher_anselem.name).to eq 'Anselem'
     end
 
     it 'should be able to write the age property' do
@@ -96,5 +96,4 @@ describe Teacher do
       expect(@teacher.validate_name('johnjudebriannoble').length).to be <= 10
     end
   end
-
 end

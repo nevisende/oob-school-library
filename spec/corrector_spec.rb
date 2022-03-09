@@ -1,7 +1,6 @@
-require_relative '../corrector.rb'
+require_relative '../corrector'
 
 describe 'Tests of the corrector class' do
-
   context 'check the core of the class' do
     it 'should not exist any variable of corrector class' do
       count_of_corrector_class = ObjectSpace.each_object(Corrector).count
@@ -24,7 +23,6 @@ describe 'Tests of the corrector class' do
 
     it 'should not change the variable passed' do
       name = 'anselem'
-      corrected_name = Corrector.new
       expect(name).to eq 'anselem'
     end
   end

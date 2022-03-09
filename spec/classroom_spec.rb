@@ -1,4 +1,4 @@
-require_relative '../classroom.rb'
+require_relative '../classroom'
 
 describe 'Tests of Classroom class' do
   before :all do
@@ -30,11 +30,11 @@ describe 'Tests of Classroom class' do
     end
 
     it 'should be to read the students variable' do
-      expect(@classroom.students).to eq [] 
+      expect(@classroom.students).to eq []
     end
 
     it 'shouldn\'t be to write the students variable' do
-      expect{ @classroom.students = ['Anselem'] }.to raise_exception(NoMethodError)
+      expect { @classroom.students = ['Anselem'] }.to raise_exception(NoMethodError)
     end
   end
 end

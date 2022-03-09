@@ -33,4 +33,18 @@ describe Book do
       expect(@book.author).to eq  'Dan Brown'
     end
   end
+
+  context 'have access to rentals' do
+    it 'should be able to be read' do
+      expect(@book.rentals).to eq []
+    end
+
+    it 'should be able to be an empty array when initialized' do
+      expect(@book.rentals.empty?).to eq true
+    end
+
+    it 'should not be able to be written to directly' do
+      expect{ @book.rentals = [1, 2, 3] }.to raise_exception(NoMethodError)
+    end
+  end
 end

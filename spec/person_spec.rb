@@ -47,6 +47,14 @@ describe Person do
     it 'should be able to read the rentals' do
       expect(@person.rentals).to eq []
     end
+
+    it 'should not be able to write to the id' do
+      expect{ @person.id = 100 }.to raise_exception(NoMethodError)
+    end
+
+    it 'should not be able to write to the rentals' do
+      expect{ @person.rentals = [1,2,3] }.to raise_exception(NoMethodError)
+    end
   end
 
 end

@@ -11,7 +11,7 @@ describe Person do
     end
   end
 
-  context 'accessible' do
+  context 'instance varaible accessibility' do
     it 'should be able to read the age property' do
       expect(@person.age).to eq 30
     end
@@ -19,6 +19,15 @@ describe Person do
     it 'should be able to write to the age property' do
       @person.age = 50
       expect(@person.age).to eq 50
+    end
+
+    it 'should be able to read the name property' do
+      expect(@person.name).to eq 'Furkan'
+    end
+
+    it 'should be able to write to the age property' do
+      @person.name = 'John'
+      expect(@person.name).to eq 'John'
     end
   end
 

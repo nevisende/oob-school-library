@@ -6,6 +6,5 @@ require_relative './store'
 puts "---------------------------------\n
  Welcome to School Library App!\n
 ------------------------------"
-store = Store.new
 
-init(store)
+init

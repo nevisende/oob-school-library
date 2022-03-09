@@ -81,6 +81,14 @@ describe Person do
       book = Book.new('John is fine', 'Jane Doe')
       expect(@person.add_rental(book, date).class).to eq Rental
     end
+
+    it 'should validate name when method is called' do
+      expect(@person.validate_name('johnjudebriannoble')).to eq 'Johnjudebr'
+    end
+
+    it 'should validate name when method is called' do
+      expect(@person.validate_name('johnjudebriannoble').length).to be <= 10
+    end
   end
 
 end

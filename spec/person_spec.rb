@@ -1,4 +1,6 @@
 require_relative '../person'
+require_relative '../book'
+require_relative '../rental'
 
 describe Person do
   before :all do
@@ -72,6 +74,12 @@ describe Person do
 
     it 'should return true if person is of age to use services' do
       expect(@person.can_use_services?).to be_truthy
+    end
+
+    it 'should return a new rental when the method is called' do
+      date = '2022/03/03'
+      book = Book.new('John is fine', 'Jane Doe')
+      expect(@person.add_rental(book, date).class).to eq Rental
     end
   end
 

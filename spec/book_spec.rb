@@ -12,7 +12,7 @@ describe Book do
     end
   end
 
-  context 'have access to' do
+  context 'have access to title' do
     it 'the title should be accessible' do
       expect(@book.title).to eq 'John is fine'
     end
@@ -20,6 +20,17 @@ describe Book do
     it 'should be able to write book title' do
       @book.title = 'John is doing just okay'
       expect(@book.title).to eq 'John is doing just okay'
+    end
+  end
+
+  context 'have access to author' do
+    it 'the author should be accessible' do
+      expect(@book.author).to eq 'Jane Doe'
+    end
+
+    it 'should be able to write book author' do
+      @book.author = 'Dan Brown'
+      expect(@book.author).to eq  'Dan Brown'
     end
   end
 end

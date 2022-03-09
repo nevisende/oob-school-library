@@ -1,4 +1,5 @@
 require_relative '../student'
+require_relative '../classroom'
 
 describe Student do
   before :each do
@@ -14,4 +15,14 @@ describe Student do
       expect{ Student.new }.to raise_exception(ArgumentError)
     end
   end
+  
+    context 'instance method checks' do
+      it 'should return classroom as nil if not included during initialization' do
+        expect(@student.classroom).to eq nil
+      end
+
+      it 'should return a string when method is called' do
+        expect(@student.play_hooky).to eq "¯\(ツ)/¯"
+      end
+    end
 end

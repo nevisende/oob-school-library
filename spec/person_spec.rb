@@ -86,7 +86,7 @@ describe Person do
       expect(@person.validate_name('johnjudebriannoble')).to eq 'Johnjudebr'
     end
 
-    it 'should validate name when method is called' do
+    it 'should make sure the length does not exceed 10' do
       expect(@person.validate_name('johnjudebriannoble').length).to be <= 10
     end
   end

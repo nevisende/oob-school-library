@@ -12,4 +12,9 @@ describe Book do
     end
   end
 
+  context 'have access to' do
+    it 'the title should be accessible' do
+      expect(@book.title).to eq 'John is fine'
+    end
+  end
 end

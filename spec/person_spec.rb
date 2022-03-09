@@ -39,6 +39,14 @@ describe Person do
       @person.type = 'Teacher'
       expect(@person.type).to eq 'Teacher'
     end
+
+    it 'should be able to read the id' do
+      expect(@person.id.is_a?(Integer)).to be true
+    end
+
+    it 'should be able to read the rentals' do
+      expect(@person.rentals).to eq []
+    end
   end
 
 end

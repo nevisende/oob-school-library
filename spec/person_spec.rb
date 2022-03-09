@@ -69,6 +69,10 @@ describe Person do
     it 'should return error for private method' do
       expect{ @person.of_age? }.to raise_exception(NoMethodError)
     end
+
+    it 'should return true if person is of age to use services' do
+      expect(@person.can_use_services?).to be_truthy
+    end
   end
 
 end

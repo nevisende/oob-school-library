@@ -14,11 +14,11 @@ describe Person do
     end
 
     it 'should throw error if it is initialized without arguments' do
-      expect{ Person.new }.to raise_exception(ArgumentError)
+      expect { Person.new }.to raise_exception(ArgumentError)
     end
   end
 
-  context 'instance varaible accessibility' do
+  context 'instance varaible accessibility for age and name' do
     it 'should be able to read the age property' do
       expect(@person.age).to eq 30
     end
@@ -36,7 +36,9 @@ describe Person do
       @person.name = 'John'
       expect(@person.name).to eq 'John'
     end
+  end
 
+  context 'instance varaible accessibility for type, id, and rentals' do
     it 'should be able to read the type property' do
       expect(@person.type).to eq 'Student'
     end
@@ -53,23 +55,25 @@ describe Person do
     it 'should be able to read the rentals' do
       expect(@person.rentals).to eq []
     end
+  end
 
+  context 'instance varaible accessibility for type, id, and parent_permission' do
     it 'should not be able to write to the id' do
-      expect{ @person.id = 100 }.to raise_exception(NoMethodError)
+      expect { @person.id = 100 }.to raise_exception(NoMethodError)
     end
 
     it 'should not be able to write to the rentals' do
-      expect{ @person.rentals = [1,2,3] }.to raise_exception(NoMethodError)
+      expect { @person.rentals = [1, 2, 3] }.to raise_exception(NoMethodError)
     end
 
     it 'should not be able to read or write to the parent_permission' do
-      expect{ @person.parent_permission = false }.to raise_exception(NoMethodError)
+      expect { @person.parent_permission = false }.to raise_exception(NoMethodError)
     end
   end
 
   context 'check instance methods' do
     it 'should return error for private method' do
-      expect{ @person.of_age? }.to raise_exception(NoMethodError)
+      expect { @person.of_age? }.to raise_exception(NoMethodError)
     end
 
     it 'should return true if person is of age to use services' do
@@ -90,5 +94,4 @@ describe Person do
       expect(@person.validate_name('johnjudebriannoble').length).to be <= 10
     end
   end
-
 end

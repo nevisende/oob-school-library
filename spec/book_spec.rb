@@ -1,5 +1,4 @@
-require_relative '../book.rb'
-
+require_relative '../book'
 
 describe Book do
   before :each do
@@ -30,7 +29,7 @@ describe Book do
 
     it 'should be able to write book author' do
       @book.author = 'Dan Brown'
-      expect(@book.author).to eq  'Dan Brown'
+      expect(@book.author).to eq 'Dan Brown'
     end
   end
 
@@ -44,7 +43,7 @@ describe Book do
     end
 
     it 'should not be able to be written to directly' do
-      expect{ @book.rentals = [1, 2, 3] }.to raise_exception(NoMethodError)
+      expect { @book.rentals = [1, 2, 3] }.to raise_exception(NoMethodError)
     end
   end
 end

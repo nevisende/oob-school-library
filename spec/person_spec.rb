@@ -15,6 +15,11 @@ describe Person do
     it 'should be able to read the age property' do
       expect(@person.age).to eq 30
     end
+
+    it 'should be able to write to the age property' do
+      @person.age = 50
+      expect(@person.age).to eq 50
+    end
   end
 
 end

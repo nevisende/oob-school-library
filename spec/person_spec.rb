@@ -10,9 +10,7 @@ describe Person do
     it 'should be an instance of Person' do
       expect(@person).to be_instance_of Person
     end
-  end
 
-  context 'instance check' do
     it 'should throw error if it is initialized without arguments' do
       expect{ Person.new }.to raise_exception(ArgumentError)
     end
@@ -67,6 +65,10 @@ describe Person do
     end
   end
 
-
+  context 'check instance methods' do
+    it 'should return error for private method' do
+      expect{ @person.of_age? }.to raise_exception(NoMethodError)
+    end
+  end
 
 end

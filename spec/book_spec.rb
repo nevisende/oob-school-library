@@ -16,5 +16,10 @@ describe Book do
     it 'the title should be accessible' do
       expect(@book.title).to eq 'John is fine'
     end
+
+    it 'should be able to write book title' do
+      @book.title = 'John is doing just okay'
+      expect(@book.title).to eq 'John is doing just okay'
+    end
   end
 end

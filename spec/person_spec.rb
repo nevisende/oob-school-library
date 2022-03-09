@@ -10,4 +10,11 @@ describe Person do
       expect(@person).to be_instance_of Person
     end
   end
+
+  context 'accessible' do
+    it 'should be able to read the age property' do
+      expect(@person.age).to eq 30
+    end
+  end
+
 end
